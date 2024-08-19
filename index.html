@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- TODO change title -->
+    <title>
+      Reflex-Based Open-Vocabulary Navigation without Prior Knowledge Using Omnidirectional Camera and Multiple Vision-Language Models
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XJ0NHR591"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-1XJ0NHR591');
+    </script>
+
+    <meta property="og:url"           content="https://haraduka.github.io/omnidirectional-vlm" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="
+      Reflex-Based Open-Vocabulary Navigation without Prior Knowledge Using Omnidirectional Camera and Multiple Vision-Language Models
+    " />
+    <meta property="og:description"   content="
+    Various robot navigation methods have been developed, but they are mainly based on Simultaneous Localization and Mapping (SLAM), reinforcement learning, etc., which require prior map construction or learning.
+    In this study, we consider the simplest method that does not require any map construction or learning, and execute open-vocabulary navigation of robots without any prior knowledge to do this.
+    We applied an omnidirectional camera and pre-trained vision-language models to the robot.
+    The omnidirectional camera provides a uniform view of the surroundings, thus eliminating the need for complicated exploratory behaviors including trajectory generation.
+    By applying multiple pre-trained vision-language models to this omnidirectional image and incorporating reflective behaviors, we show that navigation becomes simple and does not require any prior setup.
+    Interesting properties and limitations of our method are discussed based on experiments with the mobile robot Fetch.
+    " />
+    <meta property="og:image" content="https://haraduka.github.io/omnidirectional-vlm/assets/img/banner.png" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-12">
+
+          <div class="text-center">
+            <h1 class="mt-5"><b>Reflex-Based Open-Vocabulary Navigation</b></h1>
+    </title>
+            <h2 class="mt-3"><b>without Prior Knowledge Using Omnidirectional Camera and Multiple Vision-Language Models</b></h1>
+            <h4 class="mt-4 conf"><b>Advanced Robotics</b></h4>
+            <ul class="list-inline mt-4">
+              <li class="list-inline-item"><a href="https://haraduka.github.io" target="_blank">Kento Kawaharazuka</a></li>
+              <li class="list-inline-item ml-4">Yoshiki Obinata</li>
+              <li class="list-inline-item ml-4">Naoaki Kanazawa</li>
+              <li class="list-inline-item ml-4">Naoto Tsukamoto</li>
+              <li class="list-inline-item ml-4">Kei Okada</li>
+              <li class="list-inline-item ml-4">Masayuki Inaba</li>
+              <li class="mt-2">
+                JSK Robotics Laboratory, The University of Tokyo, Japan
+              </li>
+            </ul>
+            <ul class="list-inline mt-4">
+              <li class="list-inline-item">
+                <a href="https://arxiv.org/abs/2405.04826" target="_blank">Paper</a>
+              </li>
+              <li class="list-inline-item ml-4">
+                <a href="https://youtu.be/auCYNiMiXXE" target="_blank">Video</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-lg-10 offset-lg-1">
+              <p>
+    Various robot navigation methods have been developed, but they are mainly based on Simultaneous Localization and Mapping (SLAM), reinforcement learning, etc., which require prior map construction or learning.
+    In this study, we consider the simplest method that does not require any map construction or learning, and execute open-vocabulary navigation of robots without any prior knowledge to do this.
+    We applied an omnidirectional camera and pre-trained vision-language models to the robot.
+    The omnidirectional camera provides a uniform view of the surroundings, thus eliminating the need for complicated exploratory behaviors including trajectory generation.
+    By applying multiple pre-trained vision-language models to this omnidirectional image and incorporating reflective behaviors, we show that navigation becomes simple and does not require any prior setup.
+    Interesting properties and limitations of our method are discussed based on experiments with the mobile robot Fetch.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1">
+            <h4>Reflex-Based Open-Vocabulary Navigation</h4>
+            <p>
+            The concept of this study: simple reflex-based open-vocabulary navigation is enabled by splitting the expanded omnidirectional image and applying multiple pre-trained large-scale vision-language models.
+            </p>
+            <div align="center" class="row mt-4">
+              <div class="col-lg-8 offset-lg-2">
+                <img src="assets/img/concept.png" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1">
+            <h4>Omnidirectional Camera</h4>
+            <p>
+            Dual-fisheye stitching for the expanded 360-degree omnidirectional image. The upper figure shows the fisheye images before processing, the middle figure shows the expanded image, and the lower figure shows the input image to vision-language models with unnecessary parts removed from the expanded image.
+            </p>
+            <div align="center" class="row mt-4">
+              <div class="col-lg-6 offset-lg-3">
+                <img src="assets/img/omnidirectional.png" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1">
+            <h4>Application of Pre-Trained Vision-Language Models</h4>
+            <p>
+            The preliminary experiments of using large-scale vision-language models for open-vocabulary navigation. The left figure shows the split image and the recognition result, and the right graph shows the average of the transformed similarity for 10 repetitions of each instruction for CLIP and Detic: <b>kitchen</b> - "Go to the kitchen", <b>microwave</b> - "Please look at the microwave oven", <b>bookshelf</b> - "See the bookshelf".
+            </p>
+            <div align="center" class="row mt-4 mb-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/vlm.png" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1">
+            <h4>Basic Experiments</h4>
+            <p>
+            The environmental setup of the basic experiment. The mobile robot Fetch is placed in a small area surrounded by the kitchen, microwave oven, and desk with chairs.
+            </p>
+            <div align="center" class="row mt-4 mb-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/basic-setup.png" class="img-fluid">
+              </div>
+            </div>
+            <p>
+            The trajectories of the mobile robot Fetch and the error between the robot's final and target positions in the basic experiment. We prepared three instructions: <b>kitchen</b> - "Go to the kitchen", <b>microwave</b> - "Please look at the microwave oven'', and <b>desk</b> - "See the desk with chairs", and compared the proposed method <b>ALL</b> with <b>CLIP</b> and <b>Detic</b>.
+            </p>
+            <div align="center" class="row mt-4 mb-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/kitchen.gif" class="img-fluid">
+              </div>
+            </div>
+            <div align="center" class="row mt-4 mb-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/microwave.gif" class="img-fluid">
+              </div>
+            </div>
+            <div align="center" class="row mt-4 mb-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/desk.gif" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1">
+            <h4>Advanced Experiment</h4>
+            <p>
+            The advanced navigation experiment. The instruction is continuously changed in the following order: (1) "Look at the large TV display on the wooden table", (2) "Look at the multiple small PC monitors on the white desk near the bookshelf", and (3) "Check the microwave oven".
+            </p>
+            <div align="center" class="row mt-4 mb-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/advanced-traj.png" class="img-fluid">
+              </div>
+            </div>
+            <div align="center" class="row mt-4">
+              <div class="col-lg-10 offset-lg-1">
+                <img src="assets/img/advanced.gif" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <!-- bibtex -->
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1">
+            <h4 id="bibtex">Bibtex</h4>
+            <pre>
+@article{kawaharazuka2024omnivlm,
+  author={K. Kawaharazuka and Y. Obinata and N. Kanazawa and N. Tsukamoto and K. Okada and M. Inaba},
+  title={{Reflex-Based Open-Vocabulary Navigation without Prior Knowledge Using Omnidirectional Camera and Multiple Vision-Language Models}},
+  journal={Advanced Robotics},
+  pages={1--12},
+  year=2024,
+}
+            </pre>
+          </div>
+
+          <!-- contact -->
+          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
+          <div class="col-lg-10 offset-lg-1 mb-5">
+            <h4 id="contact">Contact</h4>
+            <p>
+            If you have any questions, please feel free to contact
+            <a href="https://haraduka.github.io" target="_blank">Kento Kawaharazuka</a>.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
